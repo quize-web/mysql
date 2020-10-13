@@ -8,7 +8,10 @@ services:
     container_name: mysql__57
     build: ./57
     volumes:
-      - ./data:/var/lib/mysql
+      # директория с конфигурацией MySQL
+      - ./57/conf.d:/etc/mysql/conf.d
+      # сами БД
+      - ./57/data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: ${ROOT_PWD}
       MYSQL_USER: docker

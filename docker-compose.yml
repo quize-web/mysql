@@ -6,6 +6,7 @@ services:
   # MYSQL
   mysql__57:
     container_name: mysql__57
+    restart: always
     build: ./57
     volumes:
       # директория с конфигурацией MySQL
@@ -19,3 +20,12 @@ services:
 #      MYSQL_DATABASE: ${DB_NAME}
     ports:
      - "3306:3306"
+    networks:
+      backend:
+        aliases:
+          - mysql_net
+
+networks:
+  backend:
+    external:
+      name: local_backend

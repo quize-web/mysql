@@ -1,0 +1,8 @@
+version: "2"
+syncs:
+  db-data:
+    notify_terminal: true
+    src: './57/data'
+  db-conf:
+    notify_terminal: true
+    src: './57/conf.d'

@@ -1,0 +1,21 @@
+#version: "3.8"
+version: "3.7"
+#version: "3.5"
+
+services:
+  #
+  mysql__57:
+    volumes:
+      - db-conf:/etc/mysql/conf.d
+      - db-data:/var/lib/mysql
+
+networks:
+  backend:
+    external:
+      name: local_backend
+
+volumes:
+  db-data:
+    external: true
+  db-conf:
+    external: true

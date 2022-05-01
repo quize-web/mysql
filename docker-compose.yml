@@ -1,12 +1,14 @@
 #version: "3.8"
-version: "3.5"
+version: "3.7"
+#version: "3.5"
 
 services:
 
   # MYSQL
   mysql__57:
+#    platform: linux/x86_64
     container_name: mysql__57
-    restart: always
+#    restart: always
     build: ./57
     volumes:
       # директория с конфигурацией MySQL
@@ -24,8 +26,18 @@ services:
       backend:
         aliases:
           - mysql_net
+      web:
+        aliases:
+          - mysql_net
 
 networks:
+#  backend:
+#    external:
+#      name: local_backend
+#  web:
+#    external:
+#      name: web_web
   backend:
-    external:
-      name: local_backend
+    name: local_backend
+  web:
+    name: web_web
